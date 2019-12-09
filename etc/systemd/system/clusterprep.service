@@ -1,0 +1,10 @@
+[Unit]
+Description=Cluster Preparation Service
+
+[Service]
+# Command to execute when the service is started
+Environment=PYTHONPATH=/usr/local/cluster-prep/python
+Environment=PYTHONUNBUFFERED=1
+Type=notify
+WantedBy=default.target
+ExecStart=/usr/bin/python3 /usr/local/cluster-prep/python/cluster-prep-service.py
