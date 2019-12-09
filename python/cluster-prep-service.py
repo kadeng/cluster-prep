@@ -38,10 +38,7 @@ def is_locked(lock):
     return False
 
 def do_lock(lock, status="locked"):
-<<<<<<< HEAD
     os.makedirs(BASEDIR + "locks", exist_ok=True)
-=======
->>>>>>> e717bc8af4a9ee3d6a4f1eeccdfb0980ebaa5b2d
     with open(BASEDIR + "locks/%s.lock" % (lock), "w") as fh:
         fh.write(status)
 
