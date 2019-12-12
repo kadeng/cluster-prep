@@ -86,19 +86,20 @@ def main():
     if role.startswith("node"):
         role = "node"
     log("Determined role: %s" % (role))
+    systemd.daemon.notify('READY=1')
     setup_scripts = glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role))
     boot_scripts = glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role))
     for script in setup_scripts:
         sname = os.path.basename(script)
         if not is_locked(sname):
             log("Executing setup script %s" % (sname))
-            do_lock(sname, execute(script))
+            do_lock(role + "." + sname, execute(script))
     for script in boot_scripts:
         sname = os.path.basename(script)
         log("Executing on-boot script %s" % (sname))
 
     log('cluster-prep startup complete')
-    systemd.daemon.notify('READY=1')
+
 
 if __name__=='__main__':
     main()
