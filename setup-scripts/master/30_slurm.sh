@@ -12,7 +12,7 @@ systemctl start slurmdbd
 systemctl enable slurmctld
 systemctl start slurmctld
 
-sacctmgr add cluster compute-cluster
-sacctmgr add account compute-account description="Compute accounts" Organization=OurOrg
-sacctmgr create user ubuntu account=compute-account adminlevel=None
+sacctmgr -i add cluster compute-cluster
+sacctmgr -i add account compute-account description="Compute accounts" Organization=OurOrg
+sacctmgr -i create user ubuntu account=compute-account adminlevel=None
 sinfo

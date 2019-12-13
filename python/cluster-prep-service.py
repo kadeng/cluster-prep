@@ -14,15 +14,20 @@ def determine_hostname(update_hostname=False):
     if 'INSTANCE_ROLE' in os.environ:
         role = os.environ['INSTANCE_ROLE']
     else:
-        try:
-            ipcmd = subprocess.check_output(["ip", "addr", "show", "dev", "eth0"]).decode("utf-8")
-            ipcmd = [ line.strip().split(" ")[1].split("/")[0] for line in ipcmd.split("\n") if line.strip().startswith("inet ")]
+        ip_addr = None
+        for device in ["eth0", "ens3", "ens0", "ens1", "ens2"]:
+            try:
+                ipcmd = subprocess.check_output(["ip", "addr", "show", "dev", device]).decode("utf-8")
+            except:
+                continue
+            print(ipcmd)
+            ipcmd = [line.strip().split(" ")[1].split("/")[0] for line in ipcmd.split("\n") if
+                     line.strip().startswith("inet ")]
             ip_addr = ipcmd[0]
-        except:
-            import traceback
-            traceback.print_exc()
-            log("Failed to determine IP address for eth0 - could not parse output", file=sys.stderr)
-            exit(-22)
+            break
+        if ip_addr is None:
+            log("Failed to determine IP address")
+            exit(-1)
         log("Determined IP Address: %s" % (ip_addr))
         etchlines = open("/etc/hosts", "r").readlines()
         for line in etchlines:

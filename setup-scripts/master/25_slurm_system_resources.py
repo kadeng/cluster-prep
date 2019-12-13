@@ -11,6 +11,6 @@ if __name__=='__main__':
     cpu_count = os.cpu_count()
     node_count = 0
     print("CPUs: %d - GPUs: %d" % (cpu_count, len(nvidia_devices)))
-    if len(nvidia_devices>0):
+    if len(nvidia_devices)>0:
         with open("/etc/slurm/slurm.conf", "a") as fh:
-            fh.write("NodeName=node[0-230] Gres=gpu:%d CPUs=%d RealMemory=2000000 State=UNKNOWN\n" % (len(nvidia_devices), cpu_count))
+            fh.write("NodeName=node[0-230] Gres=gpu:%d CPUs=%d State=UNKNOWN\n" % (len(nvidia_devices), cpu_count))

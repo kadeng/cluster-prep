@@ -28,6 +28,7 @@ mkdir -p /etc/slurm
 cd /usr/local/ubuntu-slurm
 cp *.service /etc/systemd/system
 cp slurm.conf /etc/slurm/
+cp slurmdbd.conf /etc/slurm/
 cp gres.conf /etc/slurm/gres.conf
 cp cgroup.conf /etc/slurm/cgroup.conf
 cp cgroup_allowed_devices_file.conf /etc/slurm/cgroup_allowed_devices_file.conf
