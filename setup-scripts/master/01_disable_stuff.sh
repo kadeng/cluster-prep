@@ -1,4 +1,5 @@
 #!/bin/bash
+# Disable all those services which cannot operate in the sandbox anyway
 systemctl stop amazon-ssm-agent
 systemctl disable amazon-ssm-agent
 systemctl stop dbus-org.freedesktop.resolve1

@@ -35,3 +35,4 @@ cp cgroup_allowed_devices_file.conf /etc/slurm/cgroup_allowed_devices_file.conf
 systemctl daemon-reload
 systemctl disable slurmdbd
 systemctl disable slurmctld
+systemctl disable slurmd
