@@ -1,7 +1,3 @@
-# @TODO:
-# Write /etc/slurm/gres.conf
-# depending on actual resources
-# Similar to https://github.com/kadeng/ubuntu-slurm/blob/master/gres.conf.dgx
 import glob
 import re
 import os
