@@ -92,8 +92,8 @@ def main():
         role = "node"
     log("Determined role: %s" % (role))
     systemd.daemon.notify('READY=1')
-    setup_scripts = glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role))
-    boot_scripts = glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role))
+    setup_scripts = sorted(glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role)))
+    boot_scripts = sorted(glob.glob(BASEDIR + "/setup-scripts/%s/*" % (role)))
     for script in setup_scripts:
         sname = os.path.basename(script)
         if not is_locked(sname):

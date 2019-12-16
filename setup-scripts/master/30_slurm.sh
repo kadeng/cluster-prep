@@ -9,13 +9,14 @@ systemctl start mysql
 systemctl daemon-reload
 systemctl enable slurmdbd
 systemctl start slurmdbd
-sleep 4
+sleep 12
 systemctl enable slurmctld
 systemctl start slurmctld
-sleep 4
+sleep 12
 sacctmgr -i add cluster compute-cluster
 sacctmgr -i add account compute-account description="Compute accounts" Organization=OurOrg
 sacctmgr -i create user ubuntu account=compute-account adminlevel=None
+sleep 12
 systemctl start slurmd
 sleep 4
 sinfo
