@@ -102,7 +102,7 @@ def main():
     for script in boot_scripts:
         sname = os.path.basename(script)
         log("Executing on-boot script %s" % (sname))
-
+    do_lock(role+".installation.done", "OK")
     log('cluster-prep startup complete')
 
 
