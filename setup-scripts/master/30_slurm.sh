@@ -18,5 +18,6 @@ sacctmgr -i add account compute-account description="Compute accounts" Organizat
 sacctmgr -i create user ubuntu account=compute-account adminlevel=None
 sleep 12
 systemctl start slurmd
+systemctl restart slurmctld
 sleep 4
 sinfo
