@@ -40,7 +40,7 @@ def configure(repl):
     repl.completion_menu_scroll_offset = 0
 
     # Show line numbers (when the input contains multiple lines.)
-    repl.show_line_numbers = False
+    repl.show_line_numbers = True
 
     # Show status bar.
     repl.show_status_bar = True
@@ -72,7 +72,7 @@ def configure(repl):
     repl.vi_mode = True
 
     # Paste mode. (When True, don't insert whitespace after new line.)
-    repl.paste_mode = True
+    repl.paste_mode = False
 
     # Use the classic prompt. (Display '>>>' instead of 'In [1]'.)
     repl.prompt_style = 'ipython'  # 'classic' or 'ipython'
@@ -170,15 +170,3 @@ def configure(repl):
                 b.insert_text(corrections[w])
 
         b.insert_text(' ')
-    """
-
-
-# Custom colorscheme for the UI. See `ptpython/layout.py` and
-# `ptpython/style.py` for all possible tokens.
-_custom_ui_colorscheme = {
-    # Blue prompt.
-    Token.Layout.Prompt: 'bg:#eeeeff #000000 bold',
-
-    # Make the status toolbar red.
-    Token.Toolbar.Status: 'bg:#ff0000 #000000',
-}
