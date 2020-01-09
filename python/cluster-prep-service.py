@@ -15,7 +15,7 @@ def determine_hostname(update_hostname=False):
         role = os.environ['INSTANCE_ROLE']
     else:
         ip_addr = None
-        for device in ["eth0", "ens3", "ens0", "ens1", "ens2"]:
+        for device in ["eth0", "ens3", "ens0", "ens1", "ens2", "ens3", "ens4", "ens5", "ens6", "ens7"]:
             try:
                 ipcmd = subprocess.check_output(["ip", "addr", "show", "dev", device]).decode("utf-8")
             except:
