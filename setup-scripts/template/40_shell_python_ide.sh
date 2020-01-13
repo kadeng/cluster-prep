@@ -13,3 +13,6 @@ chown ubuntu:ubuntu /home/ubuntu/.ptpython/config.py
 # Using TMUX customizations from https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 cp /usr/local/cluster-prep/resources/pide.sh /usr/local/bin/pide
 chmod +x /usr/local/bin/pide
+
+cp /usr/local/cluster-prep/resources/pyde.sh /usr/local/bin/pyde
+chmod +x /usr/local/bin/pyde
