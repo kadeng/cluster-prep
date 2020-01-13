@@ -36,3 +36,4 @@ systemctl daemon-reload
 systemctl disable slurmdbd
 systemctl disable slurmctld
 systemctl disable slurmd
+cat /usr/local/cluster-prep/resources/slurm_nodes.cfg >> /etc/slurm/slurm.conf
