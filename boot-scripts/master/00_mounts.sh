@@ -1,4 +1,6 @@
 #!/bin/bash
 mount /data
 mount /data/nfs
-echo "OK"
+exportfs -a
+systemctl restart nfs-kernel-server
+
