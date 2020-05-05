@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install prerequisites ( some might already exist)
 apt-get -y install ranger tmux
-sudo -i -u ubuntu /home/ubuntu/anaconda3/bin/pip install ptpython ipython
+sudo -i -u ubuntu /home/ubuntu/anaconda3/bin/pip install ptpython==2.0.6 ipython
 
 # Configure ptpython / ptipython
 sudo -i -u ubuntu mkdir -p /home/ubuntu/.ptpython
